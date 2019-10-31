@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ArticleController@index')->name('article.index');
 
 Auth::routes();
 
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/article', 'ArticleController@index')->name('article');
+Route::resource('article', 'ArticleController')->except('index');
