@@ -15,9 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
-        $article = Article::all();
-        return view('article.index', compact('article'));
+        $articles = Article::all();
+        return view('article.index', compact('articles'));
     }
 
     /**
@@ -47,9 +46,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
         //
+        return view('article.show', compact('article'));
     }
 
     /**
